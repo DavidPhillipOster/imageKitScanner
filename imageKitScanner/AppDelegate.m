@@ -28,7 +28,10 @@
 
 - (void)deviceBrowser:(nonnull ICDeviceBrowser *)browser didAddDevice:(nonnull ICDevice *)device moreComing:(BOOL)moreComing {
   if (nil == self.scanner) {
+    NSAssert(self.scannerView, @"no scannerview");
+    NSAssert(self.scannerView.delegate, @"no scannerview delegate");
     self.scanner = (ICScannerDevice *)device;
+    NSLog(@"%@", device);
     self.scannerView.scannerDevice = self.scanner;
     [self.scanner requestOpenSession];
   }
@@ -45,6 +48,11 @@
 }
 
 - (void)scannerDeviceView: (IKScannerDeviceView *)scannerDeviceView didScanToURL: (NSURL *)url fileData: (NSData *)data error: (NSError *)error {
+  if (url) {
+    NSWorkspace *ws = [NSWorkspace sharedWorkspace];
+    [ws openURL:url];
+    NSLog(@"%@", url);
+  }
 }
 
 
