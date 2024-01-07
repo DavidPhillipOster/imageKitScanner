@@ -16,8 +16,8 @@ With my scanner, it looks like this:
 
 ![](images/screenshot.png)
 
-Since the app is sandboxed, you can really only write to its container directory, but this version
-opens the resulting scan in **Preview** when done.
+Since the app is sandboxed, you can really only write to its container directory, Pictures, or Downloads,
+but this version opens the resulting scan in **Preview** when done.
 
 ## License
 
